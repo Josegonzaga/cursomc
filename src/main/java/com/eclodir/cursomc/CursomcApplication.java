@@ -1,4 +1,4 @@
-package ocm.eclodir.cursomc;
+package com.eclodir.cursomc;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
