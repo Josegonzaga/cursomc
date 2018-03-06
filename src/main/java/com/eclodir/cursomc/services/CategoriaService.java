@@ -17,7 +17,7 @@ public class CategoriaService {
 		Categoria obj = repo.findOne(id);
 		
 		if (obj==null) {
-			throw new ObjectNotFoundException("Objeto "  + id + " não encontrado, referente a classe: " + Categoria.class.getName());
+			throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", referente a classe "+ Categoria.class.getName());
 		}
 		
 		return obj;
