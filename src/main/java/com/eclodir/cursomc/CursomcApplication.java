@@ -124,10 +124,11 @@ public class CursomcApplication implements CommandLineRunner {
 		Pedido ped1 = new Pedido(null, sdf.parse("10/12/2017 12:45"),e1,cli1);
 		Pedido ped2 = new Pedido(null, sdf.parse("11/12/2017 14:45"),e2,cli1);
 		
-		Pagamento pagto1 = new PagamentoComCartao(null,EstadoPagamento.QUITADO, ped1, 6);
+		Pagamento pagto1 = new PagamentoComCartao(null,ped1, sdf.parse("20/12/2017 12:30"), EstadoPagamento.QUITADO, 2);
+		
 		ped1.setPagamento(pagto1);
 		
-		Pagamento pagto2 = new PagamentoComBoleto(null, EstadoPagamento.PENDENTE, ped2, sdf.parse("20/12/2017 12:30"), null);
+		Pagamento pagto2 = new PagamentoComBoleto(null, ped2, sdf.parse("21/11/2017 13:30"), EstadoPagamento.PENDENTE, sdf.parse("26/11/2017 13:30"));
 		ped2.setPagamento(pagto2);
 		
 		cli1.getPedidos().addAll(Arrays.asList(ped1, ped2));
