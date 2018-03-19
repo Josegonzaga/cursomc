@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.eclodir.cursomc.domain.Categoria;
 import com.eclodir.cursomc.repositories.CategoriaRepository;
+import com.eclodir.cursomc.services.exceptions.DataIntegrityException;
 import com.eclodir.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
@@ -13,7 +14,7 @@ public class CategoriaService {
 	@Autowired
 	private CategoriaRepository repo;
 	
-	public Categoria buscar(Integer id) {
+	public Categoria find(Integer id) {
 		Categoria obj = repo.findOne(id);
 		
 		if (obj==null) {
@@ -28,6 +29,22 @@ public class CategoriaService {
 	
 		obj.setId(null);
 		return repo.save(obj);
+	}
+
+	public Categoria update(Categoria obj) {
+		find(obj.getId());
+		return repo.save(obj);
+	}
+	
+	public void delete(Integer id) {
+		find(id);
+		try {
+			repo.delete(id);
+		} catch (Exception e) {
+			throw new DataIntegrityException("Não é possível excluir categorias que possuem produtos");
+		}
+		
+		
 	}
 
 }

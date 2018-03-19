@@ -13,7 +13,7 @@ public class ClienteService {
 	@Autowired
 	ClienteRepository clienteRepository;
 
-	public Cliente buscar(Integer id) {
+	public Cliente find(Integer id) {
 		
 		Cliente cliente = clienteRepository.findOne(id);
 		
@@ -24,5 +24,7 @@ public class ClienteService {
 		return cliente;
 		
 	}
+
+
 	
 }
