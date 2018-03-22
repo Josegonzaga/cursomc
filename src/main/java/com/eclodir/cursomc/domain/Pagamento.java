@@ -33,8 +33,8 @@ public abstract class Pagamento implements Serializable{
 	@JsonFormat(pattern="dd/MM/yyyy")
 	private Date dataPagamento;
 	
-	@Enumerated
-	private EstadoPagamento estadoPagamento;
+
+	private Integer estadoPagamento;
 	
 	public Pagamento() {}
 
@@ -62,20 +62,20 @@ public abstract class Pagamento implements Serializable{
 		this.dataPagamento = dataPagamento;
 	}
 
-	public EstadoPagamento getEstadoPagamento() {
+	public Integer getEstadoPagamento() {
 		return estadoPagamento;
 	}
 
-	public void setEstadoPagamento(EstadoPagamento estadoPagamento) {
+	public void setEstadoPagamento(Integer estadoPagamento) {
 		this.estadoPagamento = estadoPagamento;
 	}
 
-	public Pagamento(Long id, Pedido pedido, Date dataPagamento, EstadoPagamento estadoPagamento) {
+	public Pagamento(Long id, Pedido pedido, Date dataPagamento, EstadoPagamento estado) {
 		super();
 		this.id = id;
 		this.pedido = pedido;
 		this.dataPagamento = dataPagamento;
-		this.estadoPagamento = estadoPagamento;
+		this.estadoPagamento = (estado == null) ? null : estado.getCodido();
 	}
 	
 	
