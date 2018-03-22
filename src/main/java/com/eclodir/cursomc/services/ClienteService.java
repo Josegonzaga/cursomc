@@ -45,9 +45,7 @@ public class ClienteService {
 		repo.save(obj);
 		enderecoRepository.save(obj.getEnderecos());
 		return obj;
-		
 	}
-
 
 	public Cliente update(Cliente obj) {
 		Cliente newObj = find(obj.getId());
@@ -62,7 +60,6 @@ public class ClienteService {
 		} catch (Exception e) {
 			throw new DataIntegrityException("Não é possível excluir porque há entidades relacionadas");
 		}
-	
 	}
 
 	public List<Cliente> findAll(){
@@ -90,12 +87,8 @@ public class ClienteService {
 		if (objDTO.getTelefone3() != null) {
 			cli.getTelefones().add(objDTO.getTelefone3());
 		}
-		
 		return cli;
-	
-		
 	}
-	
 	
 	private void updateData(Cliente newObj, Cliente obj) {
 		newObj.setNome(obj.getEmail());
