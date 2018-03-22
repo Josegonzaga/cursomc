@@ -1,4 +1,4 @@
-package com.eclodir.cursomc.domain;
+ package com.eclodir.cursomc.domain;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -51,7 +51,7 @@ public class Cliente implements Serializable{
 		this.nome = nome;
 		this.email = email;
 		this.cpfOuCnpj = cpfOuCnpj;
-		this.tipo = tipo.getCodigo();
+		this.tipo = (tipo==null) ? null : tipo.getCodigo();
 	}
 
 	public Integer getId() {
