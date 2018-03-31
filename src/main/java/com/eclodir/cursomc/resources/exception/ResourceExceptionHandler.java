@@ -2,6 +2,7 @@ package com.eclodir.cursomc.resources.exception;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -40,6 +41,21 @@ public class ResourceExceptionHandler {
 		
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
 	};
+	
+	
+	@ExceptionHandler (DataIntegrityViolationException.class)
+	public ResponseEntity<StandardError> validation(DataIntegrityViolationException e, HttpServletRequest request) {
+		
+		ValidationError err = new ValidationError(HttpStatus.BAD_REQUEST.value(), "Erro de validação", System.currentTimeMillis());
+		
+		for (FieldError x : e.getBindingResult().getFieldErrors()) {
+			err.addErrort(x.getField(), x.getDefaultMessage());
+		}
+		
+		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(err);
+	};
+	
+	
 	
 	
 	
