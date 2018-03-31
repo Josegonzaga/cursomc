@@ -21,7 +21,7 @@ public abstract class Pagamento implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	private Long id;
+	private Integer id;
 	
 	@JsonIgnore
 	@OneToOne
@@ -37,11 +37,11 @@ public abstract class Pagamento implements Serializable{
 	
 	public Pagamento() {}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -69,7 +69,7 @@ public abstract class Pagamento implements Serializable{
 		this.estadoPagamento = estadoPagamento;
 	}
 
-	public Pagamento(Long id, Pedido pedido, Date dataPagamento, EstadoPagamento estado) {
+	public Pagamento(Integer id, Pedido pedido, Date dataPagamento, EstadoPagamento estado) {
 		super();
 		this.id = id;
 		this.pedido = pedido;

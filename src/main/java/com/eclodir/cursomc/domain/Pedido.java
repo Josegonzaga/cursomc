@@ -23,7 +23,7 @@ public class Pedido implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	
 	@JsonFormat (pattern="dd/MM/yyy hh:mm")
 	private Date instante;
@@ -46,7 +46,7 @@ public class Pedido implements Serializable{
 	
 	public Pedido() {}
 
-	public Pedido(Long id, Date data, Endereco endereco, Cliente cliente) {
+	public Pedido(Integer id, Date data, Endereco endereco, Cliente cliente) {
 		super();
 		this.id = id;
 		this.instante = data;
@@ -54,11 +54,11 @@ public class Pedido implements Serializable{
 		this.cliente = cliente;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

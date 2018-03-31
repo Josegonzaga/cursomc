@@ -15,7 +15,7 @@ public class PagamentoComCartao extends Pagamento {
 	public PagamentoComCartao() {}
 
 
-	public PagamentoComCartao(Long id, Pedido pedido, Date dataPagamento, EstadoPagamento estadoPagamento, Integer parcelas) {
+	public PagamentoComCartao(Integer id, Pedido pedido, Date dataPagamento, EstadoPagamento estadoPagamento, Integer parcelas) {
 		super(id, pedido, dataPagamento, estadoPagamento);
 		
 		this.numeroDeParcelas = parcelas;
