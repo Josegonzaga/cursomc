@@ -1,10 +1,11 @@
 package com.eclodir.cursomc.domain;
 
-import java.util.Date;
 
 import javax.persistence.Entity;
 
 import com.eclodir.cursomc.domain.enums.EstadoPagamento;
+
+
 
 @Entity
 public class PagamentoComCartao extends Pagamento {
@@ -12,15 +13,13 @@ public class PagamentoComCartao extends Pagamento {
 
 	private Integer numeroDeParcelas;
 	
-	public PagamentoComCartao() {}
-
-
-	public PagamentoComCartao(Integer id, Pedido pedido, Date dataPagamento, EstadoPagamento estadoPagamento, Integer parcelas) {
-		super(id, pedido, dataPagamento, estadoPagamento);
-		
-		this.numeroDeParcelas = parcelas;
+	public PagamentoComCartao() {
 	}
 
+	public PagamentoComCartao(Integer id, EstadoPagamento estado, Pedido pedido, Integer numeroDeParcelas) {
+		super(id, estado, pedido);
+		this.numeroDeParcelas = numeroDeParcelas;
+	}
 
 	public Integer getNumeroDeParcelas() {
 		return numeroDeParcelas;
@@ -28,6 +27,8 @@ public class PagamentoComCartao extends Pagamento {
 
 	public void setNumeroDeParcelas(Integer numeroDeParcelas) {
 		this.numeroDeParcelas = numeroDeParcelas;
-	};
+	}
 	
+	
+		
 }
