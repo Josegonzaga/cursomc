@@ -1,25 +1,25 @@
 package com.eclodir.cursomc.domain.enums;
 
+
 public enum TipoCliente {
 
-	PESSOAFISICA (1, "Pessoa Física"),
-	PESSOAJURIDICA (2, "Pessoa Jurídica");
+	PESSOAFISICA(1, "Pessoa Física"),
+	PESSOAJURIDICA(2, "Pessoa Jurídica");
 	
-	private int codigo;
+	private int cod;
 	private String descricao;
 	
-	public int getCodigo() {
-		return this.codigo;
+	private TipoCliente(int cod, String descricao) {
+		this.cod = cod;
+		this.descricao = descricao;
 	}
 	
-	public String getDescricao() {
-		return this.descricao;
+	public int getCod() {
+		return cod;
 	}
 	
-	
-	private TipoCliente(int codigo, String desc) {
-		this.codigo = codigo;
-		this.descricao = desc;
+	public String getDescricao () {
+		return descricao;
 	}
 	
 	public static TipoCliente toEnum(Integer cod) {
@@ -28,17 +28,13 @@ public enum TipoCliente {
 			return null;
 		}
 		
-		for (TipoCliente tc: TipoCliente.values() ) {
-			if (cod.equals(tc.getCodigo())) {
-				return tc;
+		for (TipoCliente x : TipoCliente.values()) {
+			if (cod.equals(x.getCod())) {
+				return x;
 			}
-			
 		}
 		
-		
-		throw new IllegalArgumentException("Tipo do cliente código "+ cod +", não encontrado.");
-		
-		
+		throw new IllegalArgumentException("Id inválido: " + cod);
 	}
 	
 }
